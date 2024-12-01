@@ -1,0 +1,21 @@
+1. Why did you choose the tools, libraries, and language you used for the coding exercise?
+- I chose Python and Flask for this coding exercise because of their simplicity and efficiency in building REST APIs. Flask is lightweight and highly flexible,
+making it ideal for quick prototyping and small-scale applications. Python's built-in libraries like json and its robust error-handling capabilities make it easy 
+to manage data and validate user input.
+
+2. What are the advantages and disadvantages of your solution?
+- Advantages:
+The solution is straightforward and follows RESTful principles, ensuring each endpoint has a clear purpose.
+The use of a dictionary for balances provides constant-time lookup for payer balances.
+Input validation and error handling ensure robustness against invalid data.
+
+- Disadvantages:
+The in-memory storage of transactions and balances limits scalability. Performance could degrade if the data grows large. Using simple sorting for transactions 
+may not be efficient for very large datasets, where database-backed storage and indexing would be more optimal.
+
+3. What has been a favorite school/personal project thus far? What about it that challenged you?
+- My favorite project so far has been "Gesture," a computer vision-based application that recognized hand gestures to perform specific actions, such as controlling
+a media player or navigating a presentation. The project was part of a hackathon, and me and a group of 3 others had to complete it within 20 hours. The time 
+constraints were a significant challenge as we had to rapidly prototype the solution while ensuring it worked seamlessly. Developing a robust and accurate 
+gesture-recognition pipeline using frameworks like TensorFlow and OpenCV in such a short time required careful prioritization and teamwork. 
+Additionally, fine-tuning the model for real-time performance and handling variations in lighting, hand shapes, and angles made the project both exciting and demanding.
