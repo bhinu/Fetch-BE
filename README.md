@@ -20,7 +20,6 @@ The implementation is done in Python using the Flask framework.
     - [Spend Points](#spend-points)
     - [Get Balance](#get-balance)
 4. [Testing the API](#testing-the-api)
-5. [Example Inputs and Outputs](#example-inputs-and-outputs)
 
 ---
 
@@ -162,22 +161,9 @@ To test the API, follow these steps:
     - Check Balances:
         ```json
         {
-            "DANNON": 1000,
-            "UNILEVER": 0,
-            "MILLER COORS": 5300
+            "DANNON": 800,
+            "MILLER COORS": 5500,
+            "UNILEVER": 0
         }
         ```
-
 ---
-
-## Example Inputs and Outputs
-
-### Add Points
-
-```json
-POST /add
-{
-    "payer": "DANNON",
-    "points": 1000,
-    "timestamp": "2022-11-02T14:00:00Z"
-}
