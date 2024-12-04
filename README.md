@@ -161,9 +161,10 @@ To test the API, follow these steps:
     - Check Balances:
         ```json
         {
-            "DANNON": 800,
-            "MILLER COORS": 5500,
-            "UNILEVER": 0
+          "DANNON": 1000,
+          "UNILEVER": 0,
+          "MILLER COORS": 5300
         }
+
         ```
 ---
