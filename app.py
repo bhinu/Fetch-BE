@@ -28,13 +28,29 @@ def add_points():
         points = data.get('points')
         timestamp = data.get('timestamp')
 
-        # Validate input and Error Handlinh
+        # Validate input and Error Handling
         if not payer or not isinstance(points, int) or not timestamp:
             return jsonify({"error": "Invalid input. 'payer', 'points', and 'timestamp' are required."}), 400
 
-        # Update transactions and balances
-        transactions.append({"payer": payer, "points": points, "timestamp": timestamp})
+        # Update balances
         balances[payer] = balances.get(payer, 0) + points
+
+        # Handle negative points
+        if points < 0:
+            # Apply negative points to prior transactions
+            points_to_adjust = -points
+            # Get prior transactions for the payer, sorted by timestamp
+            prior_transactions = [t for t in sorted(transactions, key=lambda x: x['timestamp']) if t['payer'] == payer and t['points'] > 0]
+            for t in prior_transactions:
+                if points_to_adjust <= 0:
+                    break
+                available_points = t['points']
+                deduction = min(available_points, points_to_adjust)
+                t['points'] -= deduction
+                points_to_adjust -= deduction
+        else:
+            # For positive points, simply append the transaction
+            transactions.append({"payer": payer, "points": points, "timestamp": timestamp})
 
         # Response Message
         return jsonify({"message": "Transaction added successfully."}), 200
